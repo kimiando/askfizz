@@ -1,4 +1,16 @@
-<h1>Welcome to #home</h1>
-<button>
-  <%= link_to "Sign-in", new_user_session_path %>
-</button>
+<div class="container">
+  <%= image_tag('home.png', class:"home-pic") %>
+  <div class="description">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolorum harum impedit non quam,
+      quod autem maiores maxime ut optio iste reiciendis totam illo obcaecati excepturi sint alias! Cum, sapiente?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quibusdam dignissimos perferendis impedit eaque,
+      error dolor nisi recusandae aperiam quisquam repudiandae, tempora, pariatur neque quam velit quo fuga provident commodi.</p>
+    <% if user_signed_in? %>
+      <h3>Welcome, <%= current_user.email %></h3>
+    <% else %>
+      <button id="signin-button">
+        <%= link_to "Sign-in", new_user_session_path %>
+      </button>
+    <% end %>
+  </div>
+</div>

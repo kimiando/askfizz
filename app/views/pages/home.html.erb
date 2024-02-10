@@ -1,10 +1,8 @@
 <div class="container">
   <%= image_tag('home.png', class:"home-pic") %>
   <div class="description">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolorum harum impedit non quam,
-      quod autem maiores maxime ut optio iste reiciendis totam illo obcaecati excepturi sint alias! Cum, sapiente?
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quibusdam dignissimos perferendis impedit eaque,
-      error dolor nisi recusandae aperiam quisquam repudiandae, tempora, pariatur neque quam velit quo fuga provident commodi.</p>
+    <p>Explore AskFizzーThe versatile platform offering you the choice to share openly or ask questions anonymously.
+      Dive into authentic conversations, connecting with a community that embraces both visibility and mystery.</p>
     <% if user_signed_in? %>
       <h3>Welcome, <%= current_user.email %></h3>
     <% else %>
@@ -14,3 +12,22 @@
     <% end %>
   </div>
 </div>
+<div class="card-container">
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">Ask Anonymously</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><i class="fa-regular fa-user"></i> <i class="fa-regular fa-user"></i> <i class="fa-regular fa-user"></i></h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam animi officia est recusandae vero minima officiis quasi fugiat labore quos debitis fugit, sint optio quae quam natus. Inventore, architecto explicabo.</p>
+    </div>
+  </div>
+  <%= image_tag "laptop.png", style: "height: 260px;" %>
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">Connect & Follow</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <i class="fa-solid fa-magnifying-glass"></i></h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat, iste quas itaque culpa laborum hic similique ad, magni accusantium quae libero atque harum blanditiis eum eaque vero sequi pariatur eius!</p>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

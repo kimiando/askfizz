@@ -6,11 +6,11 @@ body{
 
 .container{
   display: flex;
-  background-color: white;
+ background-color: white;
   padding: 60px;
   border-radius: 50px;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 30px;
   border: 3px solid #304D30;
   .home-pic{
     height: 300px;
@@ -21,9 +21,14 @@ body{
     text-align: center;
     p{
       text-align: justify;
+      font-size: 22px;
+      line-height: 40px;
+      color:#304D30;
     }
     h3{
       text-align: center;
+      font-size: 35px;
+      color: #AAD9BB;
     }
   }
 }
@@ -46,19 +51,50 @@ body{
 }
 
 
-@media screen and (max-width: 992px) {
-  .container{
-    display: flex;
-    background-color: white;
-    padding: 45px;
-    border-radius: 50px;
-    flex-direction: column;
-    .description{
-      margin-left: 0;
-    }
-  }
+// img container option
+// .img-container {
+//   background-color: white;
+//   padding: 30px;
+//   border-radius: 20px;
+//   align-items: center;
+//   margin: 60px auto;
+//   border: 3px solid #304D30;
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   max-width: 400px;
+//   width: 100%;
+// }
+
+// .home-pic {
+//   height: 200px;
+//   width: auto;
+//   margin-bottom: 20px;
+// }
+
+// card div
+.card-container{
+  display: flex;
+  background-color: #304d30;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  border: 3px solid white;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  grid-gap: 100px;
+}
+.card {
+  text-align: center;
+  margin: 0;
+  margin: 5px;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #EDF0E5;
 }
 
+// responsiveness
 @media screen and (max-width: 576px) {
   .container{
     margin-right: auto;
@@ -70,5 +106,27 @@ body{
       font-size: 14px;
     }
   }
+  .card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 15px;
+  }
 
+}
+
+@media screen and (max-width: 992px) {
+  .container{
+    display: flex;
+    background-color: white;
+    padding: 45px;
+    border-radius: 50px;
+    flex-direction: column;
+    .description{
+      margin-left: 0;
+    }
+  }
+  .card-container {
+    grid-template-columns: 1fr
+  }
 }

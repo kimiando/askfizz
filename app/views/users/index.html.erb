@@ -2,7 +2,11 @@
   <% @users.each do |user|%>
     <div class="question-container">
       <div class="index-pic">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYPk0H72SY2vRrxtG8yeOkfdguAnc9uOduuMto-1E0g&s" alt="" style="height: 100px; width: 100px;">
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
+        <% else %>
+          <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
+        <% end %>
         <p>@<%= user.username %></p>
       </div>
       <div class="index-text">

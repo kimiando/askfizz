@@ -43,24 +43,15 @@
   <div class="question-box">
     <h3>Ask Me a Question</h3>
     <%= render 'questions/form', question: Question.new %>
-    <%# <form action="#" method="post">
-        <label for="question"></label>
-        <textarea id="question" name="question" required></textarea>
-        <div class="submit-question">
-          <label class="anonymous-checkbox">
-            <input type="checkbox" id="anonymous" name="anonymous"> Ask anonymously
-          </label>
-          <button type="submit" class="submit-btn">Ask</button>
-        </form> %>
   </div>
-</div>
-<%# separator %>
-<div class="answer-box">
-  <div class="answer-title">
-    <h3>Answers</h3>
-  </div>
-  <div class="answer-card">
-    <h5>Whats your favorite color?</h5>
-    <p>Orange!!</p>
+  <%# separator %>
+  <div class="answer-box">
+    <div class="answer-title">
+      <h3>Answers</h3>
+    </div>
+    <div class="answer-card">
+      <h5>Whats your favorite color?</h5>
+      <p>Orange!!</p>
+    </div>
   </div>
 </div>

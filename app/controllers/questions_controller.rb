@@ -11,9 +11,9 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_to root_path, notice: 'Question sent successfully.'
+      redirect_to user_path(current_user), notice: 'Question sent successfully.'
     else
-      render :new
+      redirect_to user_path(current_user), notice: 'Try again'
     end
   end
 

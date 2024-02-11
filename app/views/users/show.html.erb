@@ -1,7 +1,11 @@
 <div class="show-container">
   <div class="profile">
     <div class="index-pic-show">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYPk0H72SY2vRrxtG8yeOkfdguAnc9uOduuMto-1E0g&s" alt="" style="height: 100px; width: 100px;">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+      <% else %>
+        <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
+      <% end %>
       <div class="details-containter" style="margin-left: 20px;">
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
         <h4><%= @user.username %></h4>
@@ -22,6 +26,7 @@
                   <%= f.input :first_name, input_html: { class: "user-form" } %>
                   <%= f.input :last_name, input_html: { class: "user-form" } %>
                   <%= f.input :username, input_html: { class: "user-form" } %>
+                  <%= f.input :photo, as: :file %>
                 </div>
                 <div class="modal-footer">
                   <%# <button type="button" class="modal-button" data-bs-dismiss="modal">Close</button> %>

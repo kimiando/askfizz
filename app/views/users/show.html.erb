@@ -1,9 +1,41 @@
 <div class="show-container">
   <div class="profile">
-    <div class="index-pic">
+    <div class="index-pic-show">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYPk0H72SY2vRrxtG8yeOkfdguAnc9uOduuMto-1E0g&s" alt="" style="height: 100px; width: 100px;">
+      <div class="details-containter" style="margin-left: 20px;">
+        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+        <h4><%= @user.username %></h4>
+        <!-- Button trigger modal -->
+        <button type="button" class="edit-profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Edit Profile
+        </button>
+        <!-- Modal -->
+        <%= simple_form_for @user, html: { data: { turbo: false } } do |f| %>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= f.input :first_name, input_html: { class: "user-form" } %>
+                  <%= f.input :last_name, input_html: { class: "user-form" } %>
+                  <%= f.input :username, input_html: { class: "user-form" } %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <%= f.submit %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%#  %>
+      </div>
     </div>
   </div>
+  <%#  %>
   <div class="question-box">
     <h3>Ask Me a Question</h3>
     <form action="#" method="post">
@@ -21,18 +53,6 @@
   <div class="answer-box">
     <div class="answer-title">
       <h3>Answers</h3>
-    </div>
-    <div class="answer-card">
-      <h5>Whats your favorite color?</h5>
-      <p>Orange!!</p>
-    </div>
-    <div class="answer-card">
-      <h5>Whats your favorite color?</h5>
-      <p>Orange!!</p>
-    </div>
-    <div class="answer-card">
-      <h5>Whats your favorite color?</h5>
-      <p>Orange!!</p>
     </div>
     <div class="answer-card">
       <h5>Whats your favorite color?</h5>

@@ -5,9 +5,17 @@
   <div class="question-cards-container">
     <% @questions.each do |question| %>
       <div class="question-card">
+        <% if question.user.present? %>
+          <%= link_to user_question_path(user_id: question.user.id, id: question.id),
+              method: :delete,
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+              class: "delete" do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        <% end %>
         <div class="show-questions">
           <h2><%= question.content %></h2>
-          <p>by: <%= question.user.username %></p>
+          <p>by: <%= question.user&.username %></p>
         </div>
         <div class="answer-btn">
           <button class="submit-btn">Answer?</button>

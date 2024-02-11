@@ -25,6 +25,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = current_user.questions.find(params[:id])
+    @question.destroy
+    redirect_to user_path(current_user), notice: 'Question deleted successfully.'
+  end
+
   private
 
   def question_params

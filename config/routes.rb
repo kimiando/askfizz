@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show, :edit, :update]
-  resources :questions, only: [:index, :create, :new]
+  resources :questions, only: [:index, :show, :create, :new]
 
   get 'pages/home'
 

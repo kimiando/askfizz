@@ -10,4 +10,5 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :questions
+  has_many :asked_questions, class_name: 'Question', foreign_key: 'asked_to_id'
 end

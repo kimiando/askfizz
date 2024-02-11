@@ -24,18 +24,17 @@
                   <%= f.input :username, input_html: { class: "user-form" } %>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= f.submit %>
+                  <%# <button type="button" class="modal-button" data-bs-dismiss="modal">Close</button> %>
+                  <%= f.submit "Save", class: "modal-button" %>
                 </div>
               </div>
             </div>
           </div>
         <% end %>
-        <%#  %>
       </div>
     </div>
   </div>
-  <%#  %>
+  <%# separator %>
   <div class="question-box">
     <h3>Ask Me a Question</h3>
     <form action="#" method="post">
@@ -49,7 +48,7 @@
       </form>
     </div>
   </div>
-  <%#  %>
+  <%# separator %>
   <div class="answer-box">
     <div class="answer-title">
       <h3>Answers</h3>

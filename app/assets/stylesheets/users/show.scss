@@ -28,10 +28,32 @@
   color: white;
   font-size: 12px;
   font-weight: 500;
-  :hover {
-      background-color: #275c2a;
-  }
+}
 
+// modal css
+.modal-content{
+  background-color: #c3e2c3;
+  margin-top: 30%;
+}
+
+.modal-button{
+  display: inline-block;
+  padding: 0px 30px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  height: 36px;
+}
+
+.modal-title{
+  text-align: center;
+}
+
+.modal-footer{
+  justify-content: center;
 }
 
 // container for the question-box

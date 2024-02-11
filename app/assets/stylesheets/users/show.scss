@@ -8,6 +8,32 @@
   background-color: #d3d3d3cc;
 }
 
+.index-pic-show{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+.details-container{
+  margin-left: 20px;
+}
+.edit-profile-button{
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  padding: 0px 16px;
+  border-radius: 50px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  :hover {
+      background-color: #275c2a;
+  }
+
+}
+
 // container for the question-box
 .question-box {
   background-color: transparent;

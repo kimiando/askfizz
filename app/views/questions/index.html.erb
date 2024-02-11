@@ -20,6 +20,12 @@
         <div class="answer-btn">
           <button class="submit-btn">Answer?</button>
         </div>
+        <% if question.user.present? %>
+          <%= link_to "Delete",
+          user_question_path(user_id: question.user.id, id: question.id),
+          method: :delete,
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <% end %>
       </div>
     <% end %>
   </div>

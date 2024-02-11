@@ -6,16 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    set_user
-    @question = current_user.questions.new if current_user
+  @question = @user.questions.new if current_user
   end
 
   def edit
-    set_user
   end
 
   def update
-    @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end

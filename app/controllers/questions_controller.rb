@@ -19,9 +19,9 @@ class QuestionsController < ApplicationController
     @question.asked_to_id = params[:question][:asked_to_id]
 
     if @question.save
-      redirect_to root_path, notice: 'Question sent successfully.'
+      redirect_to users_path(current_user), notice: 'Question sent successfully.'
     else
-      redirect_to root_path, notice: 'Sorry, there was an issue.'
+      redirect_to users_path(current_user), notice: 'Sorry, there was an issue.'
     end
   end
 

@@ -30,6 +30,14 @@
   display: flex;
   justify-content: center;
 }
+
+.delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: green;
+}
+
 @media (max-width: 1024px) {
   .question-cards-container {
     grid-template-columns: repeat(2, 1fr);

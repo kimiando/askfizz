@@ -26,10 +26,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
-    @user = @question.asked_to
+    @question = current_user.questions.find(params[:id])
     @question.destroy
-    redirect_to user_question_path(@user), status: :see_other
+    redirect_to user_path(current_user), notice: 'Question deleted successfully.'
   end
 
   private

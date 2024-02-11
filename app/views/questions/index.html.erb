@@ -1,0 +1,10 @@
+<h1>All Questions</h1>
+<% @questions.each do |question| %>
+  <div class="question">
+    <p><strong><%= question.user.username %>:</strong> <%= question.content %></p>
+  </div>
+<% end %><% @questions.each do |question| %>
+  <div class="question">
+    <p><strong><%= question.user.username %>:</strong> <%= question.content %></p>
+  </div>
+<% end %>

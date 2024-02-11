@@ -13,12 +13,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 7cqb;
+  height: 80px;
   padding: 0px 50px;
   color: #526d52;
-  position: fixed;
   bottom: 0;
   width: 100%;
+  margin-top: 30px;
 }
 .footer-links {
   display: flex;
@@ -37,4 +37,20 @@ main {
   a:hover{
     opacity: 1;
   }
+}
+
+
+// responsiveness of footer
+@media screen and (max-width: 450px) {
+  .footer{
+    padding: 18px;
+  }
+  .footer-copyright{
+    font-size: 12px;
+  }
+  .footer-links  {
+    a{
+    font-size: 18px;
+    }
+}
 }

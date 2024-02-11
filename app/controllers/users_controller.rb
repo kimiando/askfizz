@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user
+    set_user
+    @question = current_user.questions.new if current_user
   end
 
   def edit
-    @user
+    set_user
   end
 
   def update

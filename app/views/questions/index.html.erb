@@ -18,7 +18,9 @@
           <p>by: <%= question.user&.username %></p>
         </div>
         <div class="answer-btn">
-          <button class="submit-btn">Answer?</button>
+          <%= link_to new_user_question_answer_path(user_id: question.user.id, question_id: question.id), class: "submit-btn" do %>
+            <button class="submit-btn">Answer?</button>
+          <% end %>
         </div>
       </div>
     <% end %>

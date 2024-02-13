@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
   @question = @user.questions.new if current_user
+  @answers = @user.answers
   end
 
   def edit

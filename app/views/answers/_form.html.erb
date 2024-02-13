@@ -1,0 +1,7 @@
+<%= simple_form_for [@user, question, answer], url: user_question_answers_path(@user, question), method: :post do |f| %>
+  <%= f.text_area :content, id: "answer_content", name: "answer[content]", required: true %>
+  <%= f.hidden_field :asked_to_id, value: @user.id %>
+  <div class="submit-question">
+    <%= f.button :submit, 'answer', class: 'submit-btn' %>
+  </div>
+<% end %>

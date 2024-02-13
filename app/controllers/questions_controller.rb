@@ -1,12 +1,16 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
+    @questions = Question.all
     @questions = current_user.asked_questions
+    @answer = Answer.new
   end
 
   def show
     @user = User.find(params[:id])
     @questions_asked_to_user = @user.asked_questions
+    @question = Question.find(params[:question_id])
+    @answer = Answer.new
   end
 
   def new
@@ -35,5 +39,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:content, :asked_to_id).merge(asker_id: current_user.id)
+  end
+  def set_user_and_question(question)
+    @user = question.asked_to_user
+    @question = question
   end
 end

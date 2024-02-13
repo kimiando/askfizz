@@ -10,9 +10,11 @@
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
         <h4><%= @user.username %></h4>
         <!-- Button trigger modal -->
-        <button type="button" class="edit-profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          Edit Profile
-        </button>
+        <% if @user == current_user %>
+          <button type="button" class="edit-profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Edit Profile
+          </button>
+        <% end %>
         <!-- Modal -->
         <%= simple_form_for @user, html: { data: { turbo: false } } do |f| %>
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -45,14 +47,13 @@
     <%= render 'questions/form', question: Question.new %>
   </div>
   <%# separator %>
-  <!-- app/views/users/show.html.erb -->
   <div class="answer-box">
     <div class="answer-title">
       <h3>Answers</h3>
     </div>
-    <% @answers.each do |answer| %>
+    <% @user.answers.each do |answer| %>
       <div class="answer-card">
-        <h5><%= answer.question.content %> by: <%= answer.question.asker.username %></h5>
+        <h5><%= answer.question.content %> by: <%= answer.user.username %></h5>
         <p><%= answer.content %></p>
       </div>
     <% end %>

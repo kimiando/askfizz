@@ -2,6 +2,8 @@
   <%= f.text_area :content, id: "answer_content", name: "answer[content]", required: true %>
   <%= f.hidden_field :asked_to_id, value: @user.id %>
   <div class="submit-question">
-    <%= f.button :submit, 'answer', class: 'submit-btn' %>
+    <div class="answer-button">
+      <%= f.button :submit, 'answer', class: 'submit-btn' %>
+    </div>
   </div>
 <% end %>

@@ -40,6 +40,7 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:content, :asked_to_id).merge(asker_id: current_user.id)
   end
+
   def set_user_and_question(question)
     @user = question.asked_to_user
     @question = question

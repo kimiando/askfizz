@@ -77,8 +77,13 @@ body{
   border-radius: 10px;
   background-color: #EDF0E5;
   width: auto;
+  color: #304d30;
 }
 
+// design for the p-text inside a container
+.card-text{
+  text-align: justify;
+}
 // responsiveness
 @media screen and (max-width: 576px) {
   .container{

@@ -142,3 +142,43 @@ textarea {
   border-bottom: 1px solid lightgray
   ;
 }
+// container for the user-details
+.answer-home-photo{
+  display: flex;
+  align-items: center;
+  h4{
+    margin-left: 10px;
+  }
+}
+
+.answer-content-container{
+  h5{
+    margin-top: 5px;
+  }
+  p{
+    color: gray;
+    margin-top: -13px;
+  }
+}
+
+.question-header{
+display: flex;
+margin-bottom: 8px;
+img{
+  border-radius: 25px;
+  margin-top: 4px;
+  margin-left: 8px;
+  margin-right: 3px;
+}
+}
+
+.question-content{
+  display: flex;
+  p{
+    margin-top: 6px;
+  }
+  a{
+    text-decoration: none;
+    color: #4CAF50;
+  }
+}

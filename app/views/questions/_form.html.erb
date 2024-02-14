@@ -2,6 +2,7 @@
   <%= f.text_area :content, id: "question_content", name: "question[content]", required: true %>
   <%= f.hidden_field :asked_to_id, value: @user.id %>
   <div class="submit-question">
+    <%= f.input :anonymous, as: :boolean %>
     <%= f.button :submit, 'Ask', class: 'submit-btn' %>
   </div>
 <% end %>

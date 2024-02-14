@@ -1,19 +1,24 @@
 <div class="main-index-container">
   <% @users.each do |user|%>
-    <div class="question-container">
-      <div class="index-pic">
-        <% if user.photo.attached? %>
-          <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
-        <% else %>
-          <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
-        <% end %>
-        <p>@<%= link_to user.username, user_path(user) %></p>
+    <% user.answers.each do |answer| %>
+      <div class="question-container">
+        <div class="index-pic">
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
+          <% else %>
+            <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
+          <% end %>
+          <p>@ <%= link_to user.username, user_path(user) %></p>
+        </div>
+        <div class="index-text">
+          <h2>
+            <i class="fa-solid fa-clipboard-question"></i> <%= answer.question.content %>
+          </h2>
+          <p>
+            <%= answer.content %>
+          </p>
+        </div>
       </div>
-      <div class="index-text">
-        <h2>Hello????</h2>
-        <p>hi</p>
-        <p>less than one day ago</p>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

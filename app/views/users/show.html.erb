@@ -52,8 +52,20 @@
     </div>
     <% @user.answers.each do |answer| %>
       <div class="answer-card">
-        <h5><%= answer.question.content %> by: <%= answer.user.username %></h5>
-        <p><%= answer.content %></p>
+        <div class="answer-content-container">
+          <div class="question-header">
+            <h5><%= answer.question.content %></h5>
+            <div class="question-content">
+              <% if answer.question.user.photo.attached? %>
+                <%= cl_image_tag answer.question.user.photo.key, height: 25, width: 25, crop: :fill %>
+              <% else %>
+                <%= image_tag image_path("user.png"), height: 25, width: 25, crop: :fill %>
+              <% end %>
+              <p><%= link_to answer.question.user.username, user_path(answer.question.user)%></p>
+            </div>
+          </div>
+          <p><%= answer.content %></p>
+        </div>
       </div>
     <% end %>
   </div>

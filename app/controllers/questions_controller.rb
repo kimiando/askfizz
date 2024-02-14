@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.asker = current_user
     @question.asked_to_id = params[:question][:asked_to_id]
+    @question.anonymous = params[:question][:anonymous] == '1'
 
     if @question.save
       redirect_to users_path(current_user), notice: 'Question sent successfully.'

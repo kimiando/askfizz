@@ -10,6 +10,9 @@
 }
 // form-button
 .submit-question{
-  display: contents;
-  width: 150px;
+  display: flex;
+
+  .submit-btn{
+    width: 150px;
+  }
 }

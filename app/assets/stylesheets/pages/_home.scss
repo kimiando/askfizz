@@ -6,6 +6,7 @@ body{
   padding: 0;
 }
 
+// main-container
 .container{
   display: flex;
  background-color: white;
@@ -66,6 +67,7 @@ body{
     justify-items: center;
     align-items: center;
 }
+// individual card for home
 .card {
   text-align: center;
   margin: 0;

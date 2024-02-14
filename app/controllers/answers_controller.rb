@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_question, only: [:index, :create, :destroy]
+  before_action :set_question, only: %i[index create destroy]
   def index
     @answer = Answer.new
   end

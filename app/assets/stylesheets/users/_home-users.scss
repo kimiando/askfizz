@@ -1,3 +1,4 @@
+// main index-container
 .main-index-container {
   background: white;
   padding: 20px;
@@ -7,6 +8,7 @@
   max-width: 1200px;
 }
 
+// container to ask a question for the user-home-page
 .question-container {
   display: flex;
   align-items: center;
@@ -17,6 +19,7 @@
   border-radius: 8px;
 }
 
+// profile picture
 .index-pic{
   padding: 15px;
   display: flex;
@@ -27,6 +30,7 @@
   }
 }
 
+// text for the home
 .index-text {
   flex-grow: 1;
   background-color: lightgray;
@@ -49,7 +53,7 @@
   }
 }
 
-/* Responsive Styling */
+// Responsiveness
 @media (max-width: 768px) {
   .main-index-container {
     margin: 2em auto;

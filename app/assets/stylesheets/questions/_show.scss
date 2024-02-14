@@ -1,8 +1,10 @@
+// header-text
 .show-question-header {
   padding: 11px;
   border-bottom: 1px solid green;
   margin: 20px;
 }
+
 
 .show-questions {
   margin: 20px;
@@ -11,6 +13,7 @@
   padding: 20px;
 }
 
+// container for questions
 .question-cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -18,6 +21,7 @@
   margin: -8px;
 }
 
+// card container for each question
 .question-card {
   box-sizing: border-box;
   border: 1px solid #ddd;
@@ -31,6 +35,7 @@
   justify-content: center;
 }
 
+// font-awesome delete button
 .delete{
   display: flex;
   flex-direction: row;

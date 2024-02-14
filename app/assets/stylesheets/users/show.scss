@@ -1,9 +1,11 @@
+// main-container for user-show
 .show-container{
   background-color: white;
   margin: 30px;
   border-radius: 5px;
   padding-bottom: 3px;
 }
+
 .profile{
   background-color: #d3d3d3cc;
 }
@@ -13,9 +15,12 @@
   display: flex;
   align-items: center;
 }
+
 .details-container{
   margin-left: 20px;
 }
+
+// button css for editing a profile
 .edit-profile-button{
   display: inline-block;
   outline: 0;

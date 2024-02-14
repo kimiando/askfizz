@@ -56,12 +56,17 @@
           <div class="question-header">
             <h5><%= answer.question.content %></h5>
             <div class="question-content">
-              <% if answer.question.user.photo.attached? %>
+              <% if answer.question.anonymous? %>
+                <%# no image since its anonymous %>
+              <% elsif answer.question.user.photo.attached? %>
                 <%= cl_image_tag answer.question.user.photo.key, height: 25, width: 25, crop: :fill %>
               <% else %>
-                <%= image_tag image_path("user.png"), height: 25, width: 25, crop: :fill %>
+                <%= image_tag image_path("placeholder.png"), height: 25, width: 25, crop: :fill %>
               <% end %>
-              <p><%= link_to answer.question.user.username, user_path(answer.question.user)%></p>
+              <p> <% if answer.question.anonymous? %>
+                <% else %>
+                  by: <%= link_to answer.question.user.username, user_path(answer.question.user) %>
+                <% end %></p>
             </div>
           </div>
           <p><%= answer.content %></p>

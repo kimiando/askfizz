@@ -1,0 +1,52 @@
+// main container for the forms
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  a{
+    text-decoration: none;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    margin: -7px;
+  }
+}
+
+// sign-up forms and registrations form border
+.form-border{
+  border: 1px solid green;
+  padding: 50px;
+  background: darkseagreen;
+  color: darkgreen;
+  text-align: center;
+  h2{
+    margin-bottom: 30px;
+  }
+
+}
+
+.form-check {
+  display: inline-block;
+}
+
+// form buttons
+.form-btn{
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  padding: 0px 16px;
+  border-radius: 50px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  a{
+    text-align: center;
+  }
+}

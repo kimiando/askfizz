@@ -4,6 +4,7 @@
 </p>
 
 <h3> Key Features</h3>
+
 - Anonymity: Ask questions openly or anonymously
 - Personal Profiles: to share and see other users
 

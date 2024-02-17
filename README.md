@@ -2,6 +2,7 @@
 <p>
   AskFizz draws inspiration from the renowned Ask.fm concept, reimagining it to create an innovative Q&A platform that fosters engaging conversations and connects curious minds. This platform offers a sleek interface and a user friendly experience for asking and answering questions.
 </p>
+
 ## Built With
 - [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
 - [PostgreSQL](https://www.postgresql.org/) - Database

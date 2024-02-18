@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_14_202453) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_18_005444) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,6 +49,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_14_202453) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_follows_on_followed_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -81,6 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_14_202453) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "follows", "followeds"
+  add_foreign_key "follows", "followers"
   add_foreign_key "questions", "users"
   add_foreign_key "questions", "users", column: "asked_to_id"
   add_foreign_key "questions", "users", column: "asker_id"

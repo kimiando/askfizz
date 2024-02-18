@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    member do
+      post 'follow', to: 'users#follow'
+      delete 'unfollow', to: 'users#unfollow'
+    end
+  end
   get 'pages/home'
 
   # Define your root route

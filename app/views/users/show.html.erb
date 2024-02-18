@@ -12,6 +12,11 @@
           <h4>(@ <%= @user.username %>)</h4>
         </div>
         <p>Answered questions: <%= current_user.answers.count %></p>
+        <% unless current_user.following?(@user) %>
+          <%= link_to 'Follow', follow_user_path(@user), method: :post %>
+        <% else %>
+          <%= link_to 'Unfollow', unfollow_user_path(@user), method: :delete %>
+        <% end %>
         <!-- Button trigger modal -->
         <% if @user == current_user %>
           <button type="button" class="edit-profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

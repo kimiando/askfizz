@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
+  before_action :authenticate_user!, only: [:follow, :unfollow]
 
   def index
     @users = User.all
@@ -18,6 +19,21 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def follow
+    @user = User.find(params[:id])
+    current_user.followed_users << @user
+    redirect_to @user, notice: 'You are now following this user.'
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.followed_users.delete(@user)
+    redirect_to @user, notice: 'You have unfollowed this user.'
+  end
+
+  def following?(other_user)
+    followed_users.include?(other_user)
+  end
   private
 
   def set_user

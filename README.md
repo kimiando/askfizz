@@ -8,6 +8,11 @@
 - Anonymity: Ask questions openly or anonymously
 - Personal Profiles: to share and see other users
 
+<img width="1800" alt="askfizz-home" src="https://github.com/kimiando/AskFizz/assets/117824705/ccb10531-a013-47f9-aaa1-1c78151116b8">
+<img width="1800" alt="askfizz-user" src="https://github.com/kimiando/AskFizz/assets/117824705/8dafd9b0-41b8-4cb4-88d6-4c76b9a25601">
+
+Website: https://askfizz-b85e6888a939.herokuapp.com/
+
 ## Built With
 - [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
 - [PostgreSQL](https://www.postgresql.org/) - Database

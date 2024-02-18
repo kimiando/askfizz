@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-  @question = @user.questions.new if current_user
-  @answers = @user.answers
+    @question = @user.questions.new if current_user
+    @answers = @user.answers
+    @following = current_user.followed_users.include?(@user)
   end
 
   def edit
@@ -31,9 +32,6 @@ class UsersController < ApplicationController
     redirect_to @user, notice: 'You have unfollowed this user.'
   end
 
-  def following?(other_user)
-    followed_users.include?(other_user)
-  end
   private
 
   def set_user
@@ -43,4 +41,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :photo)
   end
+
+  def current_user_following?(other_user)
+    current_user.followed_users.include?(other_user)
+  end
+  helper_method :current_user_following?
 end

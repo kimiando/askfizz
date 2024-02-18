@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      post 'follow'
-      delete 'unfollow'
+      post 'follow', to: 'users#follow'
+      delete 'unfollow', to: 'users#unfollow'
     end
   end
   get 'pages/home'

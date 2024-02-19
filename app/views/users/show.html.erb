@@ -2,14 +2,14 @@
   <div class="profile">
     <div class="index-pic-show">
       <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+        <%= cl_image_tag @user.photo.key, height: 150, width: 150, crop: :fill %>
       <% else %>
-        <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
+        <%= image_tag image_path("user.png"), height: 150, width: 150, crop: :fill %>
       <% end %>
       <div class="details-containter" style="margin-left: 20px;">
         <div class="header-user-names">
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-          <h4>(@ <%= @user.username %>)</h4>
+          <h4>(@<%= @user.username %>)</h4>
         </div>
         <div class="follow-details">
           <div class="answered-section">
@@ -74,9 +74,9 @@
       <% if user_signed_in? && current_user != @user %>
         <div class="follow-links">
           <% if current_user.following?(@user) %>
-            <%= button_to "Unfollow", user_relationships_path(@user, current_user), method: :delete %>
+            <%= button_to "Unfollow", user_relationships_path(@user, current_user), method: :delete, class: "follow-button" %>
           <% else %>
-            <%= button_to "Follow", user_relationships_path(@user), method: :post %>
+            <%= button_to "Follow", user_relationships_path(@user), method: :post, class: "follow-button" %>
           <% end %>
         </div>
       <% end %>

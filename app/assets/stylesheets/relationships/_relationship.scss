@@ -4,18 +4,20 @@
 }
 
 .answered-section{
-  border-right: 1px solid black;
+  border-right: 0.5px solid black;
   text-align: center;
-  margin: 10px 10px;
+  margin: 12px 9px;
+  padding-right: 10px;
   h4{
     margin-top: 13px;
 
   }
 }
 .following-section{
-  border-right: 1px solid black;
+  border-right: 0.5px solid black;
   text-align: center;
   margin: 11px 10px;
+  padding-right: 15px;
 
 }
 .followers-section {
@@ -23,11 +25,31 @@
   margin: 11px 10px;
 }
 
-.btn-follow {
 
+
+.follow-links{
+  display: flex;
+}
+// button for follow
+.follow-button{
+  display: inline-block;
+  border: none;
   cursor: pointer;
+  height: 35px;
+  padding: 0px 28px;
+  border-radius: 50px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.btn-follow:hover {
-  background-color: #0056b3;
+.follow-button:hover {
+  background-color: green;
 }
+
+
+// .answered-section h4, .answered-section .h4 {
+//   margin-top: 9px;
+//   margin-bottom: 13px;
+// }

@@ -1,0 +1,33 @@
+.follow-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.answered-section{
+  border-right: 1px solid black;
+  text-align: center;
+  margin: 10px 10px;
+  h4{
+    margin-top: 13px;
+
+  }
+}
+.following-section{
+  border-right: 1px solid black;
+  text-align: center;
+  margin: 11px 10px;
+
+}
+.followers-section {
+  text-align: center;
+  margin: 11px 10px;
+}
+
+.btn-follow {
+
+  cursor: pointer;
+}
+
+.btn-follow:hover {
+  background-color: #0056b3;
+}

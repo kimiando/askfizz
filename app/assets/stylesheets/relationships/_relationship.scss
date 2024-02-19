@@ -1,3 +1,4 @@
+// main-container for the follow-details
 .follow-details {
   display: flex;
   justify-content: space-around;
@@ -7,7 +8,7 @@
   border-right: 0.5px solid black;
   text-align: center;
   margin: 12px 9px;
-  padding-right: 10px;
+  padding-right: 12px;
   h4{
     margin-top: 13px;
 
@@ -26,10 +27,11 @@
 }
 
 
-
+// container for the button
 .follow-links{
   display: flex;
 }
+
 // button for follow
 .follow-button{
   display: inline-block;
@@ -47,6 +49,17 @@
 .follow-button:hover {
   background-color: green;
 }
+
+// modal scss
+.follow-modal-content{
+  background-color: white;
+  margin-top: 30%;
+  h5{
+    text-align: center;
+  }
+}
+
+
 
 
 // .answered-section h4, .answered-section .h4 {

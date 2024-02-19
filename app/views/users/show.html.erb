@@ -11,69 +11,137 @@
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
           <h4>(@ <%= @user.username %>)</h4>
         </div>
-        <p>Answered questions: <%= current_user.answers.count %></p>
-        <!-- Button trigger modal -->
-        <% if @user == current_user %>
-          <button type="button" class="edit-profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Edit Profile
+        <div class="follow-details">
+          <div class="answered-section">
+            <h4><%= current_user.answers.count %></h4>
+            <p>Answered questions</p>
           </button>
-        <% end %>
-        <!-- Modal -->
-        <%= simple_form_for @user, html: { data: { turbo: false } } do |f| %>
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <%= f.input :first_name, input_html: { class: "user-form" } %>
-                  <%= f.input :last_name, input_html: { class: "user-form" } %>
-                  <%= f.input :username, input_html: { class: "user-form" } %>
-                  <%= f.input :photo, as: :file %>
-                </div>
-                <div class="modal-footer">
-                  <%= f.submit "Save", class: "modal-button" %>
-                </div>
+        </div>
+        <div class="following-section">
+          <button type="button" class="btn btn-follow" data-bs-toggle="modal" data-bs-target="#FollowingModal">
+            <h4><%= @user.followings.count %></h4>
+          </button>
+          <p>Following</p>
+        </div>
+        <div class="followers-section">
+          <button type="button" class="btn btn-follow" data-bs-toggle="modal" data-bs-target="#FollowerModal">
+            <h4><%= @user.followers.count %></h4>
+          </button>
+          <p>Followers</p>
+        </div>
+      </div>
+      <%# modals %>
+      <!-- Following-Modal -->
+      <div class="modal fade" id="FollowingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Following</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <% @user.followings.each do |following_user| %>
+                <p><%= following_user.username %></p>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Follower-Modal -->
+      <div class="modal fade" id="FollowerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Followers</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <% @user.followers.each do |following_user| %>
+                <p><%= following_user.username %></p>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# modals-end %>
+      <% if user_signed_in? && current_user != @user %>
+        <div class="follow-links">
+          <% if current_user.following?(@user) %>
+            <%= button_to "Unfollow", user_relationships_path(@user, current_user), method: :delete %>
+          <% else %>
+            <%= button_to "Follow", user_relationships_path(@user), method: :post %>
+          <% end %>
+        </div>
+      <% end %>
+      <!-- Button trigger modal -->
+      <% if @user == current_user %>
+        <button type="button" class="edit-profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Edit Profile
+        </button>
+      <% end %>
+      <!-- Modal -->
+      <%= simple_form_for @user, html: { data: { turbo: false } } do |f| %>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= f.input :first_name, input_html: { class: "user-form" } %>
+                <%= f.input :last_name, input_html: { class: "user-form" } %>
+                <%= f.input :username, input_html: { class: "user-form" } %>
+                <%= f.input :photo, as: :file %>
+              </div>
+              <div class="modal-footer">
+                <%= f.submit "Save", class: "modal-button" %>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <%# separator %>
-  <div class="question-box">
-    <h3>Ask Me a Question</h3>
-    <%= render 'questions/form', question: Question.new %>
-  </div>
-  <%# separator %>
-  <div class="answer-box">
-    <div class="answer-title">
-      <h3>Answers</h3>
-    </div>
-    <% @user.answers.each do |answer| %>
-      <div class="answer-card">
-        <div class="answer-content-container">
-          <div class="question-header">
-            <h5><%= answer.question.content %></h5>
-            <div class="question-content">
-              <% if answer.question.anonymous? %>
-                <%# no image since its anonymous %>
-              <% elsif answer.question.user.photo.attached? %>
-                <%= cl_image_tag answer.question.user.photo.key, height: 25, width: 25, crop: :fill %>
-              <% else %>
-                <%= image_tag image_path("placeholder.png"), height: 25, width: 25, crop: :fill %>
-              <% end %>
-              <p> <% if answer.question.anonymous? %>
-                <% else %>
-                  by: @<%= link_to answer.question.user.username, user_path(answer.question.user) %>
-                <% end %></p>
-            </div>
-          </div>
-          <p><%= answer.content %></p>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+</div>
+<%# separator %>
+<div class="question-box">
+  <h3>Ask Me a Question</h3>
+  <%= render 'questions/form', question: Question.new %>
+</div>
+<%# separator %>
+<div class="answer-box">
+  <div class="answer-title">
+    <h3>Answers</h3>
+  </div>
+  <% @user.answers.each do |answer| %>
+    <div class="answer-card">
+      <div class="answer-content-container">
+        <div class="question-header">
+          <h5><%= answer.question.content %></h5>
+          <div class="question-content">
+            <% if answer.question.anonymous? %>
+              <%# no image since its anonymous %>
+            <% elsif answer.question.user.photo.attached? %>
+              <%= cl_image_tag answer.question.user.photo.key, height: 25, width: 25, crop: :fill %>
+            <% else %>
+              <%= image_tag image_path("placeholder.png"), height: 25, width: 25, crop: :fill %>
+            <% end %>
+            <p> <% if answer.question.anonymous? %>
+              <% else %>
+                by: @<%= link_to answer.question.user.username, user_path(answer.question.user) %>
+              <% end %></p>
+          </div>
+        </div>
+        <p><%= answer.content %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

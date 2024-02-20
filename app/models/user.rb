@@ -14,10 +14,19 @@ class User < ApplicationRecord
   has_many :answers
   has_many :asked_questions, class_name: 'Question', foreign_key: 'asked_to_id'
 
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :followings, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  # search
+  include PgSearch::Model
+  pg_search_scope :search_by_username,
+    against: %i[ username first_name last_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 
   def follow(user)
     active_relationships.create(followed_id: user.id)

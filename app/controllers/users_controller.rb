@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
   before_action :authenticate_user!, only: [:follow, :unfollow]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @users = User.all
@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def search
+    @users = User.search_by_username(params[:query])
+    render 'search'
+  end
+
   private
 
   def set_user
@@ -26,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :photo)
+    params.require(:user).permit(:first_name, :last_name, :username, :photo, :query)
   end
 
 end

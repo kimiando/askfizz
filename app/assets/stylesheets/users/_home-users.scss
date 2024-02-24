@@ -63,4 +63,46 @@
   .main-index-container {
     margin: 2em auto;
   }
+  .container-user{
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
+
+
+@media screen and (max-width: 480px) {
+  .container-user {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// each users
+.container-user{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  background-color: white;
+  padding: 60px;
+  border-radius: 50px;
+  align-items: center;
+  margin: 50px;
+  border: 3px solid #304D30;
+}
+  .card-user{
+    text-align: center;
+    margin: 0;
+    margin: 5px;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #EDF0E5;
+    width: auto;
+    color: #304d30;
+    p{
+      margin: 10px;
+    }
+    a{
+      text-decoration: none;
+      color: #304D30;
+      margin-top: 10px;
+    }
+  }

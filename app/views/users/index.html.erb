@@ -1,6 +1,6 @@
 <div class="container-user">
   <div class="header-user">
-    <h3>users</h3>
+    <h3><i class="fa-solid fa-users" style="color:green; font-size: 45px;"></i></h3>
   </div>
   <div class="card-user-container">
     <% @users.each do |user| %>
@@ -17,7 +17,7 @@
 </div>
 <div class="main-index-container">
   <% @users.each do |user|%>
-    <% user.answers.each do |answer| %>
+    <% user.answers.order(created_at: :desc).each do |answer| %>
       <div class="question-container">
         <div class="index-pic">
           <% if user.photo.attached? %>
@@ -28,9 +28,12 @@
           <p>@<%= link_to user.username, user_path(user) %></p>
         </div>
         <div class="index-text">
-          <h2>
-            Q: <%= answer.question.content %>
-          </h2>
+          <div class="header-index-text">
+            <h2>
+              Q: <%= answer.question.content %>
+            </h2>
+            <p class="time"><em><%= answer.created_at.strftime("%e %b %Y %H:%M:%S%p") %></em></p>
+          </div>
           <p>
             <%= answer.content %>
           </p>

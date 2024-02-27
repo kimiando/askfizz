@@ -120,7 +120,7 @@
   <div class="answer-title">
     <h3>Answers</h3>
   </div>
-  <% @user.answers.each do |answer| %>
+  <% @user.answers.order(created_at: :desc).each do |answer| %>
     <div class="answer-card">
       <div class="answer-content-container">
         <div class="question-header">
@@ -140,6 +140,7 @@
           </div>
         </div>
         <p><%= answer.content %></p>
+        <p class="time"><em><%= answer.created_at.strftime("%e %b %Y %H:%M:%S%p") %></em></p>
       </div>
     </div>
   <% end %>

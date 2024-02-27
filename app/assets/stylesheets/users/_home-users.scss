@@ -79,6 +79,40 @@
   .card-user{
     padding: 30px;
   }
+  .question-container{
+    display: flex;
+    flex-direction: column;
+      .header-index-text{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      }
+      .index-text{
+        width: 30rem;
+      }
+    }
+    .card-user-container{
+      .card-user{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 5px;
+        padding: 20px;
+        border: 2px dotted green;
+        border-radius: 30px;
+        background-color: #EDF0E5;
+        width: auto;
+        color: #304d30;
+      }
+    }
+  }
+
+@media (max-width: 555px) {
+  .question-container{
+    .index-text{
+      width: 20rem;
+    }
+  }
 }
 
 
@@ -90,9 +124,9 @@
   padding: 40px;
   border-radius: 15px;
   align-items: center;
-  margin: 50px;
+  margin: 3em 1em 3em 1em;
   border: 3px solid #304D30;
-  flex-direction: column;
+  flex-direction: row;
   overflow: scroll;
 }
 
@@ -104,9 +138,7 @@
   .card-user{
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     text-align: center;
-    /* margin: 0; */
     margin: 5px;
     padding: 45px;
     border: 2px dotted green;

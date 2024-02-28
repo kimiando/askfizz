@@ -21,7 +21,7 @@
       <div class="question-container">
         <div class="index-pic">
           <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
+            <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill%>
           <% else %>
             <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
           <% end %>

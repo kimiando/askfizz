@@ -6,9 +6,9 @@
     <% @users.each do |user| %>
       <div class="card-user">
         <% if user.photo.attached? %>
-          <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
+          <%= cl_image_tag user.photo.key, height: 120, width: 120, crop: :fill, class: "index-picture" %>
         <% else %>
-          <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
+          <%= image_tag image_path("user.png"), height: 120, width: 120, crop: :fill, class: "index-picture" %>
         <% end %>
         <p>@<%= link_to user.username, user_path(user) %></p>
       </div>
@@ -21,9 +21,9 @@
       <div class="question-container">
         <div class="index-pic">
           <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill%>
+            <%= cl_image_tag user.photo.key, height: 120, width: 120, crop: :fill, class: "index-picture"%>
           <% else %>
-            <%= image_tag image_path("user.png"), height: 100, width: 100, crop: :fill %>
+            <%= image_tag image_path("user.png"), height: 120, width: 120, crop: :fill, class: "index-picture" %>
           <% end %>
           <p>@<%= link_to user.username, user_path(user) %></p>
         </div>

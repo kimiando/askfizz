@@ -25,12 +25,13 @@
   display: flex;
   flex-direction: column;
   img{
-    border-radius: 50px
+    border-radius: 60px
   }
   p{
     font-weight: bold;
     margin: 0;
     margin-top: 5px;
+    text-align: center;
   }
   a{
     text-decoration: none;
@@ -41,7 +42,7 @@
 // text for the home
 .index-text {
   flex-grow: 1;
-  background-color: lightgray;
+  background-color: #d3d3d399;
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -61,8 +62,9 @@
   }
 
   .time{
-    color: gray;
+    color: #304d308f;
     margin-left: 10px;
+    margin-bottom: 4px;
   }
 }
 
@@ -74,6 +76,10 @@
   align-items: flex-end;
 }
 
+.index-picture{
+  border: 1px solid gray;
+  border-radius: 60px;
+}
 // Responsiveness
 @media (max-width: 768px) {
   .main-index-container {

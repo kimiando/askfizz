@@ -53,6 +53,9 @@
 }
 
 // modal css
+.modal{
+  text-align: center;
+}
 .modal-content{
   background-color: #c3e2c3;
   margin-top: 30%;
@@ -204,7 +207,6 @@ img{
     color: #4CAF50;
   }
 }
-
 
 // Responsiveness
 @media screen and (max-width: 1200px) {
